@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test">
+    <test name="SignUpTest">
+        <classes>
+            <class name="SignUp">
+                <methods>
+                    <include name="signUp">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="signInTest">
+        <classes>
+            <class name="SignIn">
+                <methods>
+                    <include name="signIn">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
