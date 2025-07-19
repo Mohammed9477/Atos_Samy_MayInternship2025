@@ -43,7 +43,11 @@ public class SignUpPage {
         ElementHelper.sendText(global.getName(), driver, Name);
         return this;
     }
-
+    // This method is used to enter the name from the csv file
+    public SignUpPage enterName(String name) {
+        ElementHelper.sendText(name, driver, Name);
+        return this;
+    }
     public SignUpPage enterEmail() {
         global.setEmail(); // to  generate & store value
         ElementHelper.sendText(global.getEmail(), driver, Email);
