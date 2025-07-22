@@ -55,13 +55,8 @@ public class SignUp extends BaseTest {
                 "https://www.automationexercise.com/account_created",
                 "ACCOUNT CREATED!"
         );
-        // 👇 New Step: Click 'Continue' after account created
         signUpPage.clickContinueAfterAccountCreated();
-
-        // 👇 New Step: Logout after reaching Home page
         homepage.clickLogout();
-
-        // 👇 Optional: Click Signup/Login again to be ready for next record
         homepage.clickOnSignup_LoginBtn();
     }
 
