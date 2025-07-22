@@ -31,6 +31,7 @@ public class SignUpPage {
     By Mobile_number = By.id("mobile_number");
     By Create_Account = By.xpath("//button[text()='Create Account']");
     By AccountCreatedMessage = By.xpath("//h2[@data-qa='account-created']");
+    By continueBtn = By.xpath("//a[text()='Continue']");
     Global global;
 
     public SignUpPage() {
@@ -153,5 +154,9 @@ public class SignUpPage {
 
         return this;
     }
+    public void clickContinueAfterAccountCreated() {
+        ElementHelper.click(driver,continueBtn);
+    }
+
 }
 
