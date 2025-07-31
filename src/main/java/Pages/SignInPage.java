@@ -1,12 +1,18 @@
 package Pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utilities.DriverManger;
-import utilities.ElementHelper;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.driverManger.DriverManger;
+import utilities.commonHelper.ElementHelper;
+
+import java.time.Duration;
 
 public class SignInPage {
     WebDriver driver;
+    Alert alert;
 
     By SignIn_EmailAddress = By.xpath("//input[@data-qa='login-email']");
     By SignIn_Password = By.xpath("//input[@data-qa='login-password']");
@@ -28,5 +34,13 @@ public class SignInPage {
     }
     public void clickLoginBtn() {
         ElementHelper.click(driver,LoginBtn);
+    }
+    // Accept the alert
+    public void acceptAlert(){
+        alert = driver.switchTo().alert();
+        // add a wait to ensure the alert is present explicitly
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
     }
 }

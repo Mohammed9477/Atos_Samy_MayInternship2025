@@ -2,12 +2,10 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import utilities.AssertionHelper;
-import utilities.DriverManger;
-import utilities.ElementHelper;
-import utilities.Global;
+import utilities.commonHelper.AssertionHelper;
+import utilities.driverManger.DriverManger;
+import utilities.commonHelper.ElementHelper;
+import utilities.commonHelper.Global;
 
 
 public class SignUpPage {
@@ -31,7 +29,6 @@ public class SignUpPage {
     By Mobile_number = By.id("mobile_number");
     By Create_Account = By.xpath("//button[text()='Create Account']");
     By AccountCreatedMessage = By.xpath("//h2[@data-qa='account-created']");
-    By continueBtn = By.xpath("//a[text()='Continue']");
     Global global;
 
     public SignUpPage() {
@@ -44,18 +41,24 @@ public class SignUpPage {
         ElementHelper.sendText(global.getName(), driver, Name);
         return this;
     }
-    // This method is used to enter the name from the csv file
     public SignUpPage enterName(String name) {
         ElementHelper.sendText(name, driver, Name);
         return this;
     }
+
     public SignUpPage enterEmail() {
         global.setEmail(); // to  generate & store value
         ElementHelper.sendText(global.getEmail(), driver, Email);
 
         return this;
     }
+    // Overloaded method to allow entering a custom email
+    public SignUpPage enterEmail(String email) {
+        global.setEmail(); // to  generate & store value
+        ElementHelper.sendText(email, driver, Email);
 
+        return this;
+    }
     public SignUpPage clickSignupButton() {
         ElementHelper.click(driver, SignupBtn);
         return this;
@@ -85,6 +88,11 @@ public class SignUpPage {
     public SignUpPage enterPassword() {
         global.setPassword(); // to  generate & store value
         ElementHelper.sendText(global.getPassword(), driver, Password);
+        return this;
+    }
+    // Overloaded method to allow entering a custom password
+    public SignUpPage enterPassword(String password) {
+        ElementHelper.sendText(password, driver, Password);
         return this;
     }
 
@@ -154,9 +162,5 @@ public class SignUpPage {
 
         return this;
     }
-    public void clickContinueAfterAccountCreated() {
-        ElementHelper.click(driver,continueBtn);
-    }
-
 }
 

@@ -1,20 +1,16 @@
-
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import utilities.DriverManger;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import utilities.driverManger.DriverManger;
 
 public class BaseTest {
-    @BeforeTest
-    public void init(){
-     DriverManger.initiation();
+
+    @BeforeSuite
+    public void initSuite() {
+        DriverManger.initiation();  // Launch browser once before all tests
     }
 
-
-    @AfterTest
-    public void tearDown(){
-        DriverManger.closeDriver();
-
+    @AfterSuite
+    public void tearDownSuite() {
+        DriverManger.closeDriver(); // Quit browser after all tests
     }
 }
