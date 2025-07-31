@@ -1,0 +1,18 @@
+[
+  {
+    "name": "SAMY",
+    "email": "Testersamy2@gmail.com",
+    "title": "Mr",
+    "password": "Testersamy@123",
+    "day": "1",
+    "month": "May",
+    "year": "2000",
+    "firstName": "Mohamed",
+    "lastName": "Samy",
+    "address": "123Street",
+    "country": "India",
+    "state": "Cairo",
+    "city": "Cairo",
+    "zipcode": "12345"
+  }
+]
