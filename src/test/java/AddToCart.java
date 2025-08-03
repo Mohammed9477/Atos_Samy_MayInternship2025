@@ -48,6 +48,7 @@ public class AddToCart extends BaseTest{
         cartPage.navigateToCartPage();
         cartPage.assertProductNameAdded(firstProductName);
         cartPage.assertProductQuantity(fP_quantity);
+        cartPage.assertProductTotalPrice(fP_quantity);
 
     }
 

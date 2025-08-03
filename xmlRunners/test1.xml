@@ -8,10 +8,10 @@
             <class name="ContactUs"/>
              <class name="Logout"/>
              <class name="AddToCart"/>
-            ?-->
-            <class name="SignIn"/>
 
-            <class name="CartCheckout"/>
+            <class name="SignIn"/>  ?-->
+
+            <class name="AddToCart"/>
 
         </classes>
 

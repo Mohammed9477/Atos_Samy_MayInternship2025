@@ -15,7 +15,6 @@ public class ProductDetails {
 
 
 
-
     public ProductDetails(){
         this.driver = DriverManger.getDriver();
     }
@@ -35,7 +34,6 @@ public class ProductDetails {
         boolean allMatch = ElementHelper.verifyElementsContainNormalizedText(driver, By.cssSelector(".product-title"), keyword);
         assert allMatch : "One or more search results do not match: " + keyword;
     }
-
 
     public void clickOnAddToCart(){
         ElementHelper.click(driver,addToCartButton);
