@@ -29,6 +29,14 @@ public class CartPage {
         ElementHelper.click(driver,checkout_btn);
     }
 
+    public void enterComment(String comment){
+        ElementHelper.sendText(comment,driver,commentTextBox);
+    }
+
+    public void clickOnPlaceOrder(){
+        ElementHelper.click(driver,placeOrder_btn);
+    }
+
     public void assertProductNameAdded(String productName){
         ElementHelper.scrollToElement(driver,product_Name);
         String ActualName = ElementHelper.getText(driver,product_Name).replaceAll("\\s+", " ").trim();
@@ -41,13 +49,7 @@ public class CartPage {
         AssertionHelper.assertEqual(ActualQuantity,quantity);
     }
 
-    public void enterComment(String comment){
-        ElementHelper.sendText(comment,driver,commentTextBox);
-    }
 
-    public void clickOnPlaceOrder(){
-        ElementHelper.click(driver,placeOrder_btn);
-    }
 
 
 }

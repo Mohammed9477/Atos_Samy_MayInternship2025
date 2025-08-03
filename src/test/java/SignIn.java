@@ -19,17 +19,9 @@ public class SignIn extends BaseTest {
         global=Global.getInstance();
         contactUsPage = new ContactUsPage();
     }
-//    @Test(testName = "login")
-//    public void signIn() {
-//        homepage.clickOnSignup_LoginBtn();
-//        signInPage.enterEmail(global.getEmail());
-//        signInPage.enterPassword(global.getPassword());
-//        signInPage.clickLoginBtn();
-//    }
-
 
     @Test(dataProvider = "signinData", dataProviderClass = DataProviderUtils.class)
-    public void signInWithDataProvider(String email, String password) {
+    public void signIn(String email, String password) {
 
         homepage.clickOnSignup_LoginBtn();
 

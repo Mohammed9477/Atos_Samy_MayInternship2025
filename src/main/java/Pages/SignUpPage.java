@@ -155,7 +155,6 @@ public class SignUpPage {
     // fulfillments
     public SignUpPage assertAccountCreatedSuccessfully(String URL, String ExpectedMessage) {
 
-
         ElementHelper.getText(driver, AccountCreatedMessage);
         AssertionHelper.assertUrl(driver, URL);
         AssertionHelper.assertEqual(ElementHelper.getText(driver, AccountCreatedMessage), ExpectedMessage);

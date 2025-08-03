@@ -5,12 +5,12 @@
     <test name="signInTest">
         <classes>
             <class name="SignIn"/>
-        <class name="AddToCart"/>
+            <class name="AddToCart"/>
 
-        <class name="CartCheckout"/>
+            <class name="CartCheckout"/>
 
-        <class name="ContactUs"/>
-        <class name="Logout"/>
+            <class name="ContactUs"/>
+            <class name="Logout"/>
     </classes>
 
     </test>

@@ -8,7 +8,6 @@ public class LogoutPage {
 
     WebDriver driver;
 
-
     public LogoutPage() {
         this.driver = DriverManger.getDriver();
     }

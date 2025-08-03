@@ -6,11 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import utilities.config.LoadProperties;
+import utilities.driverManger.DriverManger;
 
+import java.io.File;
 import java.util.List;
 
 public class AssertionHelper {
-
+    //static String downloadDirectory = LoadProperties.downloadPath;
+    static String downloadDirectory = DriverManger.getDownloadPath();
     // Assert element is present and displayed
     public static void assertElementPresent(WebDriver driver, By locator) {
         try {
@@ -96,5 +100,70 @@ public static void assertAllElementsContainKeyword(WebDriver driver, By productC
 
     System.out.println("✅ All hovered overlay product names contain the keyword: " + keyword);
 }
+
+ //assert file downloaded successfully
+    public static void assertFileExists(String fileName) {
+        File file = new File(downloadDirectory + File.separator + fileName);
+        int timeoutSeconds = 10;
+        int waited = 0;
+
+        while (!file.exists() && waited < timeoutSeconds) {
+            try {
+                Thread.sleep(1000); // wait 1 sec
+                waited++;
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        //java.io.File file = new java.io.File(downloadDirectory + "/" + fileName);
+        Assert.assertTrue(file.exists() ,
+                "❌ File not downloaded: " + fileName + " at path: " + downloadDirectory);
+    }
+
+    public static void assertFileExists(String expectedFileName, String extension, int timeoutSeconds, boolean deleteAfter) {
+        // Load download path from properties file
+        //String downloadDirectory = PropertiesLoader.loadProperty("download.folder.path");
+
+        File downloadDir = new File(downloadDirectory);
+        if (!downloadDir.exists()) {
+            throw new IllegalArgumentException("Download directory does not exist: " + downloadDirectory);
+        }
+
+        File[] files;
+        boolean found = false;
+        long startTime = System.currentTimeMillis();
+
+        while (System.currentTimeMillis() - startTime < timeoutSeconds * 1000L) {
+            files = downloadDir.listFiles();
+            if (files == null) break;
+
+            for (File file : files) {
+                String name = file.getName();
+                boolean isMatching = name.contains(expectedFileName)
+                        && name.endsWith(extension)
+                        && !name.endsWith(".crdownload");
+
+                if (isMatching) {
+                    found = true;
+                    if (deleteAfter) {
+                        file.delete();
+                    }
+                    break;
+                }
+            }
+
+            if (found) break;
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new RuntimeException("Interrupted while waiting for file download", e);
+            }
+        }
+
+        Assert.assertTrue(found,
+                "❌ File not downloaded: " + expectedFileName + extension + " in folder: " + downloadDirectory);
+    }
 
 }

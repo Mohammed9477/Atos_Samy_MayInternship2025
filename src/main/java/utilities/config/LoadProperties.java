@@ -14,6 +14,7 @@ public final class LoadProperties {
     public static final String SignUpDataPath = environmentSetup.getProperty("SignUpDataPath");
     public static final String ProductDataPath = environmentSetup.getProperty("ProductDataPath");
     public static final String CheckoutDataPath = environmentSetup.getProperty("CheckoutDataPath");
+    public static final String downloadPath = environmentSetup.getProperty("downloadPath");
     //public static final String CartDataPath = environmentSetup.getProperty("CartDataPath");
 
 

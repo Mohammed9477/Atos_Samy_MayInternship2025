@@ -11,8 +11,6 @@ public class ContactUsPage {
 
     WebDriver driver;
     Alert alert;
-
-
     By contactNameField = By.xpath("//input[@data-qa='name']");
     By contactEmailField = By.xpath("//input[@data-qa='email']");
     By contactSubjectField = By.xpath("//input[@data-qa='subject']");
@@ -21,9 +19,6 @@ public class ContactUsPage {
     By chooseFileButton = By.xpath("//input[@name='upload-file']");
     By contactSuccessMessage = By.xpath("//div[@class='status alert alert-success']");
     By homeBtn = By.xpath("//a[@class='btn btn-success']");
-//    public ContactUsPage(WebDriver driver) {
-//        this.driver = driver;
-//    }
 
     public ContactUsPage() {
         this.driver = DriverManger.getDriver();

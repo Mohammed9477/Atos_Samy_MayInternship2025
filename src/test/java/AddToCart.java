@@ -21,7 +21,7 @@ public class AddToCart extends BaseTest{
         cartPage = new CartPage();
         productsPage = new ProductsPage();
     }
-//@Test(dependsOnMethods = {"SignIn.signInWithDataProvider"})
+//@Test(dependsOnMethods = {"SignIn.signIn"})
     @Test(dataProvider= "productData", dataProviderClass = DataProviderUtils.class)
     public void addToCart(String searchKeyword, String firstProductName, String fP_quantity,String secondProductName) {
         // add first product

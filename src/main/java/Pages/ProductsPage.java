@@ -25,10 +25,11 @@ public class ProductsPage {
     public void enterSearchKeyword(String keyword){
         ElementHelper.sendText(keyword,driver,Search_textBox);
     }
+
     public void clickOnSubmitSearch(){
         ElementHelper.click(driver,Search_icon);
     }
-    //Relative and Dynamic locator
+
     public void viewSpecificProductDetails(String productName){
         By viewProductDetails = RelativeLocator.with(By.linkText("View Product")).below(By.xpath("//*[text()='"+ productName + "']"));
         ElementHelper.scrollToElement(driver,viewProductDetails);

@@ -11,6 +11,7 @@ public class DataProviderUtils {
     static String signUpDataFilePath = LoadProperties.SignUpDataPath;
     static String productDataFilePath = LoadProperties.ProductDataPath;
     static String checkoutDataFilePath = LoadProperties.CheckoutDataPath;
+    public static final String ContactUSDataPath = "src/test/resources/contactUs.json";
     static final String name = "signinData";
     @DataProvider(name = name)
     public static Iterator<Object[]> signinData() throws IOException {
@@ -21,28 +22,24 @@ public class DataProviderUtils {
 
     @DataProvider(name = "contactusData")
     public static Iterator<Object[]> contactusData() throws IOException {
-        contactUsDataFilePath = validateFilePath(contactUsDataFilePath);
-        return readData(contactUsDataFilePath);
+        return readData(validateFilePath(ContactUSDataPath));
     }
 
     @DataProvider(name = "paymentData")
     public static Iterator<Object[]> paymentData() throws IOException {
-        checkoutDataFilePath = validateFilePath(checkoutDataFilePath);
-        return readData(checkoutDataFilePath);
+        return readData(validateFilePath(checkoutDataFilePath));
     }
 
 
     @DataProvider(name = "signUpData")
     public static Iterator<Object[]> signUpData() throws IOException {
-        signUpDataFilePath = validateFilePath(signUpDataFilePath);
-        return readData(signUpDataFilePath);
+        return readData(validateFilePath(signUpDataFilePath));
     }
 
 
     @DataProvider(name = "productData")
     public static Iterator<Object[]> productData() throws IOException {
-        productDataFilePath = validateFilePath(productDataFilePath);
-        return readData(productDataFilePath);
+        return readData(validateFilePath(productDataFilePath));
     }
 
 

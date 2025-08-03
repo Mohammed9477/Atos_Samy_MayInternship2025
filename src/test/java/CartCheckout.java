@@ -23,7 +23,7 @@ public class CartCheckout extends BaseTest{
     @Test(dataProvider = "paymentData", dataProviderClass = DataProviderUtils.class)
     public void CheckOutPayment(String comment, String cardName, String cardNumber, String cvc, String expiryMonth, String expiryYear) {
 
-        //cartPage.navigateToCartPage();
+        cartPage.navigateToCartPage();
         cartPage.clickOnCheckout();
         cartPage.enterComment(comment);
         cartPage.clickOnPlaceOrder();
@@ -33,7 +33,10 @@ public class CartCheckout extends BaseTest{
         paymentDetails.enterExpiryMonth(expiryMonth);
         paymentDetails.enterExpiryYear(expiryYear);
         paymentDetails.clickSubmitButton();
+
         paymentDetails.assertPaymentSuccess();
+        paymentDetails.clickDownloadInvoiceButton();
+        paymentDetails.assertInvoiceDownloaded("invoice.txt");
         paymentDetails.clickContinueButton();
     }
 }

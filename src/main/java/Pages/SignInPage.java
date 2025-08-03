@@ -35,12 +35,4 @@ public class SignInPage {
     public void clickLoginBtn() {
         ElementHelper.click(driver,LoginBtn);
     }
-    // Accept the alert
-    public void acceptAlert(){
-        alert = driver.switchTo().alert();
-        // add a wait to ensure the alert is present explicitly
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
-    }
 }
